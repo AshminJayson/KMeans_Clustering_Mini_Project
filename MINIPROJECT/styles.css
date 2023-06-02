@@ -1,13 +1,15 @@
 *{
         margin: 0px;
         padding:0px;
+        box-sizing: border-box;
         font-family: Century;
-        width: 100%;
         
 }
 
 .main{
         width:auto;
+        display: flex;
+        flex-direction: column;
         background-image: url(10.jpg);
         background:linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%,url(10.jpg));
         background-position: center;
@@ -17,9 +19,10 @@
 }
 
 .navbar{
-        width: 100vw;
-        height:75px;
-        margin:auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height:60px;
 }
 
 .icon{
@@ -39,8 +42,7 @@
 }
 
 .menu{
-        width: 400px;
-        float: left;
+        display: flex;
         height: 70px;
 }
 
@@ -72,22 +74,17 @@ ul li a:hover{
 
 .search{
         width: 330px;
-        float: left;
-        margin-left: 270px;
-
 }
 
-.srch{
+.search > input {
         font-family:'Times New Roman' ;
         width: 150px;
         height: 40px;
         background: transparent;
         border: 1px solid #ff7200;
-        margin-top: 13px;
         color: white;
         border-right:none ;
         font-size: 15px;
-        float: left;
         padding:10px;
         border-bottom-left-radius: 5px;
         border-top-left-radius: 5px;
@@ -114,14 +111,11 @@ ul li a:hover{
         outline: none;
 }
 
-.content{
-        
-        width: 100%;
-        height: auto;
-        margin: auto;
-        color: white;
-        
-
+.content-section {
+        display: flex;
+        padding: 3rem;
+        justify-content: space-evenly;
+        align-items: center;
 }
 
 .content .par{
@@ -144,8 +138,6 @@ ul li a:hover{
 }
 
 .content .cn{
-        width: 200px;
-        height: 40px;
         background: #ff7200;
         border: none;
         margin-bottom: 10px;
@@ -173,11 +165,8 @@ ul li a:hover{
 }
 
 .form{
-        width: 250px;
-        height: 380px;
-        position: absolute;
-        top:100px;
-        left: 900px;
+        display: flex;
+        flex-direction: column;
         border-radius: 10px;
         padding: 25px;
         background:linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
