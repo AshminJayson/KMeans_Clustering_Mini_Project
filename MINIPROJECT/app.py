@@ -1,5 +1,4 @@
 from flask import Flask,request,render_template
-import pickle
 
 app = Flask(__name__)
 
@@ -10,8 +9,10 @@ database={'helloworld@gmail.com':'123','hello@gmail.com':'345','mean@gmail.com':
 
 @app.route('/index1',methods=['POST','GET'])
 def login():
-	name1=request.form['username']
-	pwd=request.form['password']
+	print(request.form)
+	name1=request.form.get('username')
+	pwd=request.form.get('password')
+	print(name1,pwd)
 	if name1 not in database:
 		return render_template('home.html',info='Invalid User')
 	else:
