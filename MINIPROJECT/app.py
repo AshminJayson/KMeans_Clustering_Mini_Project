@@ -29,9 +29,13 @@ def login():
     else:
         return "Method not allowed. Please use the POST method to access this route."
 
-@app.route('/about')
+@app.route('/about',methods=['POST','GET'])
 def about():
     return render_template('about.html')
+
+@app.route('/help',methods=['POST'])
+def help():
+    return render_template('help.html')
 
 @app.route('/file', methods=['POST','GET'])
 def upload():
