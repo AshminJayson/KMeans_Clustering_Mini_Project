@@ -1,0 +1,21 @@
+*{
+        margin: 0px;
+        padding:0px;
+        box-sizing: border-box;
+        font-family: Century;
+        
+        
+}
+
+.main{
+        width: auto;
+        background-image: url(10.jpg);
+        background-position: center;
+        background-size: cover;
+        color: #ff7200;
+        text-align: center;
+        display: flex;
+        height: 100vh;
+        padding-left: 95px;
+        padding-top: 50px;
+}
