@@ -3,14 +3,13 @@ import pandas as pd
 
 app = Flask(__name__, static_folder='static/css')
 
+database = {'helloworld@gmail.com': '123',
+            'hello@gmail.com': '345', 'mean@gmail.com': 'average'}
+
 
 @app.route('/')
 def hello_world():
     return render_template('home.html')
-
-
-database = {'helloworld@gmail.com': '123',
-            'hello@gmail.com': '345', 'mean@gmail.com': 'average'}
 
 
 @app.route('/index1', methods=['POST', 'GET'])
@@ -30,9 +29,9 @@ def login():
     else:
         return "Method not allowed. Please use the POST method to access this route."
 
-@app.route('/')
-def index():
-    return render_template('home.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/file', methods=['POST','GET'])
 def upload():
