@@ -25,34 +25,26 @@ df.dtypes.value_counts() #data types
 df.isnull().sum().sort_values(ascending=False).head()
 
 #on visualizing we can confirm that there are no null values
-msno.matrix(df)
-
-sns.countplot(x='Gender', data=df, palette="Set3")
+#msno.matrix(df)
+#the plot with male and female in black background
+#figure 1
+figure_1=sns.countplot(x='Gender', data=df)
 
 #lets see how gender affects to all other features.
 
-sns.pairplot(df, hue='Gender', vars=["Age", "Annual Income (k$)", "Spending Score (1-100)"],
+figure_2=sns.pairplot(df, hue='Gender', vars=["Age", "Annual Income (k$)", "Spending Score (1-100)"],
             palette='husl',markers=['o','D'])
 
 #let's look at the correlation
+#heatmap is ocerlapping with the pairplot
 corr = df.corr(numeric_only=True)
-sns.heatmap(corr, annot=True, cmap='plasma', linewidth=0.1)
-
-plt.subplot(1,2,1)
-plt.title('House price distribution plot')
-sns.displot(df['Spending Score (1-100)'])
-
-plt.subplot(1,2,2)
-plt.title('House price distribution plot')
-sns.displot(df['Annual Income (k$)'])
-
-df['Gender'].value_counts()
+#figure_3=sns.heatmap(corr, annot=True, cmap='plasma', linewidth=0.1)
 
 plt.figure(figsize=(14,5),facecolor='#54C6C0')
 
 #number of genders
 plt.subplot(1,2,1)
-sns.barplot(x=['Female','Male'], y=df['Gender'].value_counts(), data=df)
+figure_4=sns.barplot(x=['Female','Male'], y=df['Gender'].value_counts(), data=df)
 plt.xlabel("Gender", size=14)
 plt.ylabel("Number", size=14)
 plt.title("Number of Genders\n", color="red", size='22')
@@ -71,16 +63,16 @@ list_genders_spending_score_mean = [int(spending_score_male/df['Gender'].value_c
 series_genders_spending_score_mean = pd.Series(data = list_genders_spending_score_mean)
 
 plt.subplot(1,2,2)
-sns.barplot(x=['Male (1)','Female (0)'], y=series_genders_spending_score_mean, palette='hsv')
+figre_5=sns.barplot(x=['Male (1)','Female (0)'], y=series_genders_spending_score_mean, palette='hsv')
 plt.xlabel("Gender", size=14)
 plt.ylabel("Mean Spending Score", size=14)
 plt.title("Gender & Mean Spending Score\n", color="red", size='22')
 
 #between age and spending score
 
-plt.figure(figsize=(12,8))
+'''plt.figure(figsize=(12,8))
 sns.scatterplot(x=df['Age'], y=df['Spending Score (1-100)'])
-plt.title('Age vs Spending Score')
+plt.title('Age vs Spending Score')'''
 
 #between income and spending score
 #let's add gender amidst income and spending score
@@ -106,7 +98,7 @@ numerical_features
 df.head()
 
 #encoding our categorical columns
-
+#this updates the dataframe to what we actually need 
 temp = pd.get_dummies(df[categorical_features], drop_first=True)
 temp
 
@@ -116,11 +108,19 @@ df.drop(['CustomerID','Gender'],axis =1,inplace=True)
 df.head()
 
 #standardizing to make the variance same for all variables, also fro PCA
+#the code standardizes the numerical features in df, making them have zero 
+# mean and unit variance. This is a common preprocessing step in machine 
+# learning pipelines, as it helps to bring features to a similar scale and 
+# prevent any particular feature from dominating the learning algorithm based 
+# on its magnitude.
+
 
 sc = StandardScaler()
 X = sc.fit_transform(df)
 
 #PCA
+#here in this code it actually we remove the column customer_id
+
 from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 X_2 = pca.fit_transform(X)
@@ -142,7 +142,7 @@ plt.figure(figsize=(9,6))
 plt.plot(range_val, inertia, 'bx-')
 plt.xlabel('Values of K')
 plt.ylabel('Inertia')
-plt.title('The elbow method using inertia')
+figure_5=plt.title('The elbow method using inertia')
 plt.show()
 
 #K-Means Clustering
@@ -151,9 +151,11 @@ clf = KMeans(n_clusters=4)
 clf.fit_predict(X_2)
 
 labels = clf.labels_
+# Displaying the coordinates of the centroids
+print("Coordinates of the Centroids:")
 centroids = clf.cluster_centers_
 labels
-centroids
+
 
 #cluster visualization
 plt.figure(1,figsize=(16,9))
