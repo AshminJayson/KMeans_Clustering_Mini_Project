@@ -29,19 +29,34 @@ def login():
     else:
         return "Method not allowed. Please use the POST method to access this route."
 
-@app.route('/about',methods=['POST','GET'])
+
+@app.route('/file_accepted', methods=['POST', 'GET'])
+def file_accept():
+    if request.method == 'POST':
+        # print(request.form)
+        inp_file = request.form['file']
+        # print(name1, pwd
+        return render_template('result.html', file_name=inp_file)
+    else:
+        return "Method not allowed. Please use the POST method to access this route."
+
+
+@app.route('/about', methods=['POST', 'GET'])
 def about():
     return render_template('about.html')
 
-@app.route('/help',methods=['POST'])
+
+@app.route('/help', methods=['POST'])
 def help():
     return render_template('help.html')
 
-@app.route('/file', methods=['POST','GET'])
+
+@app.route('/file', methods=['POST', 'GET'])
 def upload():
     file = request.files['file']
     df = pd.read_csv(file)
     return render_template('result.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
