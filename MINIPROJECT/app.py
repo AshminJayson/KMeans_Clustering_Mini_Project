@@ -57,6 +57,10 @@ def upload():
     df = pd.read_csv(file)
     return render_template('result.html')
 
+@app.route('/file', methods=['POST', 'GET'])
+def get_result():
+    result="Here's your result!!!"
+    return result
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
