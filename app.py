@@ -41,12 +41,17 @@ def file_accept():
         return "Method not allowed. Please use the POST method to access this route."
 
 
-@app.route('/about', methods=['POST', 'GET'])
+@app.route('/home.html')
+def home():
+    return render_template('home.html')
+
+
+@app.route('/about.html', methods=['POST', 'GET'])
 def about():
     return render_template('about.html')
 
 
-@app.route('/help', methods=['POST'])
+@app.route('/help.html', methods=['POST'])
 def help():
     return render_template('help.html')
 
@@ -57,10 +62,12 @@ def upload():
     df = pd.read_csv(file)
     return render_template('result.html')
 
+
 @app.route('/file', methods=['POST', 'GET'])
 def get_result():
-    result="Here's your result!!!"
+    result = "Here's your result!!!"
     return result
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

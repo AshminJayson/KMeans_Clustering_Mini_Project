@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>User Profile</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='styles.css') }}"
-    />
-  </head>
-  <div class="main">
-    <div class="navbar">
-      <h2 class="logo">SegmenTize</h2>
-      <div class="menu">
-        <ul>
-          <li><a href="#">PROFILE</a></li>
-          <li><a href="#">RESULTS HISTORY</a></li>
-          <li><a href="/MINIPROJECT/templates/home.html">LOGOUT</a></li>
-        </ul>
-      </div>
+    <head>
+        <title>User Profile</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static',filename='styles.css') }}"
+        />
+    </head>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo">SegmenTize</h2>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">PROFILE</a></li>
+                    <li><a href="#">RESULTS HISTORY</a></li>
+                    <li><a href="/templates/home.html">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="file">
+            <form action="http://127.0.0.1:5000/file_accepted" method="post">
+                <h2>Segment Your Data Here!!</h2>
+                <input type="file" name="file" accept=".csv" />
+                <button class="btnn">Submit</button>
+            </form>
+        </div>
     </div>
-    <div class="file">
-      <form action="http://127.0.0.1:5000/file_accepted" method="post">
-        <h2>Segment Your Data Here!!</h2>
-        <input type="file" name="file" accept=".csv" />
-        <button class="btnn">Submit</a></button>
-      </form>
-    </div>
-  </div>
-  <body></body>
+    <body></body>
 </html>

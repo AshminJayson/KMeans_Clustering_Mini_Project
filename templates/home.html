@@ -1,74 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>SEGMENTATION</title>
-    <link rel="stylesheet" href="/MINIPROJECT/styles.css" />
-  </head>
+    <head>
+        <title>SEGMENTATION</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles.css') }}"
+        />
+    </head>
 
-  <body>
-    <div class="main">
-      <div class="navbar">
-        <h2 class="logo">SegmenTize</h2>
-        <div class="menu">
-          <ul>
-            <li><a href="\MINIPROJECT\templates\home.html">HOME</a></li>
-            <li><a href="\MINIPROJECT\templates\about.html">ABOUT</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="\MINIPROJECT\templates\help.html">HELP</a></li>
-          </ul>
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">SegmenTize</h2>
+                <div class="menu">
+                    <ul>
+                        <li><a href="./home">HOME</a></li>
+                        <li><a href="./about">ABOUT</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                        <li><a href="./help">HELP</a></li>
+                    </ul>
+                </div>
+
+                <div class="search">
+                    <input type="search" name="" placeholder="Type a Text" />
+                    <a href="#"> <button class="btn">SEARCH</button></a>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="content">
+                    <h1>
+                        <br />Customer<br /><span>Segmentation</span> <br />
+                        Services
+                    </h1>
+                    <p class="par">
+                        In today's competitive landscape, understanding your
+                        customers is crucial for success.<br />
+                        SegmenTize empowers you with the tools and insights
+                        necessary to make data-driven <br />
+                        decisions,optimize your marketing efforts, and deliver
+                        personalized experiences to your
+                        <br />customers.Unlock the full potential of your
+                        customer base with SegmentPro and gain a <br />
+                        competitive edge in the market.
+                    </p>
+                </div>
+
+                <form action="http://127.0.0.1:5000/index1" method="post">
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" placeholder=" Email " />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder=" Password "
+                    />
+                    <input class="btnn" type="submit" value="Login" />
+
+                    <p class="liw">Find us @</p>
+
+                    <div class="icons">
+                        <a href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                        <a href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                        <a href="#">
+                            <ion-icon name="logo-google"></ion-icon>
+                        </a>
+                        <a href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </div>
+                </form>
+            </section>
+
+            <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         </div>
-
-        <div class="search">
-          <input type="search" name="" placeholder="Type a Text" />
-          <a href="#"> <button class="btn">SEARCH</button></a>
-        </div>
-      </div>
-
-      <section class="content-section">
-        <div class="content">
-          <h1>
-            <br />Customer<br /><span>Segmentation</span> <br />
-            Services
-          </h1>
-          <p class="par">
-            In today's competitive landscape, understanding your customers is
-            crucial for success.<br />
-            SegmenTize empowers you with the tools and insights necessary to
-            make data-driven <br />
-            decisions,optimize your marketing efforts, and deliver personalized
-            experiences to your
-            <br />customers.Unlock the full potential of your customer base with
-            SegmentPro and gain a <br />
-            competitive edge in the market.
-          </p>
-        </div>
-
-        <form action="http://127.0.0.1:5000/index1" method="post">
-          <h2>Login Here</h2>
-          <input type="email" name="email" placeholder=" Email " />
-          <input type="password" name="password" placeholder=" Password " />
-          <input class="btnn" type="submit" value="Login" />
-
-          <p class="liw">Find us @</p>
-
-          <div class="icons">
-            <a href="#">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-            <a href="#">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-            <a href="#">
-              <ion-icon name="logo-google"></ion-icon>
-            </a>
-            <a href="#">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </div>
-        </form>
-      </section>
-
-      <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    </div>
-  </body>
+    </body>
 </html>
